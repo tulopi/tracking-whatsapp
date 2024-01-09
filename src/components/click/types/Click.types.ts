@@ -5,5 +5,5 @@ export interface IClick extends Document {
     adset: string;
     ad: string;
     createdAt: Date;
-    mensaje: Date;
+    mensaje: string;
 };

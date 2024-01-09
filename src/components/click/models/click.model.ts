@@ -16,7 +16,8 @@ const clickSchema = new Schema (
             required: true
         },
         mensaje: {
-            type: Date
+            type: String,
+            required: true
         },
         createdAt: {
             type: Date

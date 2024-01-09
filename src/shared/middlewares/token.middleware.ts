@@ -1,0 +1,1 @@
+export * as tokenMiddleware from "./tokenMiddleware/controllers/createToken.component";
