@@ -1,16 +1,16 @@
 import { NextFunction, Request, Response } from "express";
-import { StatusError } from "../../../classes/StatusError";
-import { logError,logWarning } from "../../../../loggers";
-import {createTokenService} from "../services";
+import { StatusError } from "../../../shared/classes/StatusError";
+import { logError, logWarning } from "../../../loggers";
+import { createConversionService } from "../services/createConversion.service";
 
-export const createToken = async (
+export const createConversion = async (
     req: Request,
     res: Response,
     next: NextFunction
 ): Promise<void> => {
-    try{
-        const data = await createTokenService(req);
-        res.status(201).json({message: data});
+    try {
+        const data = await createConversionService(req);
+        res.status(201).json({ message: data });
     } catch (err: StatusError | unknown) {
         logError(err);
         logWarning(`${req.method} ${req.originalUrl} ${res.statusCode}`);

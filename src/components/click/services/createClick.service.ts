@@ -1,11 +1,13 @@
 import { Request } from "express";
 import clickModel from "../models/click.model";
+import { createTokenService } from "../../tokenConfig/services";
 import { StatusError } from "../../../shared/classes/StatusError";
 import { IClick } from "../types/Click.types";
+import { IConfigToken } from "../../tokenConfig/types/ConfigToken.types";
 
 export const createClickService = async (
     req: Request
-): Promise<IClick> => {
+): Promise<{result: IClick, token: IConfigToken}> => {
     const { campaign, adset, ad, mensaje } = req.body
     if (!campaign || !adset || !ad )
         throw new StatusError("Campos obligatorios no proporcionados", 400);
@@ -17,9 +19,10 @@ export const createClickService = async (
         createdAt: new Date()
     }
     
-    // Al momento de crear el click se genera el configToken? De ser así tendría que importar el configToken como un modelo nuevo y generar aleatorio y consultar en la db que no haya un mensaje que ya exista??, Preguntarle a macopi
-
+    const token = await createTokenService()
+    if(!token) throw new StatusError("Error en la creación del token", 500);
     const click = new clickModel(clickData);
+    if(!click) throw new StatusError("Error en la creación del click", 500);
     const result = await click.save();
-    return result;
+    return {result, token};
 };

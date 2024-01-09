@@ -1,10 +1,8 @@
 import { IConfigToken } from '../types/ConfigToken.types';
-import { Request } from "express";
 import configTokenModel from "../models/configToken.model";
-import { StatusError } from "../../../classes/StatusError";
+import { StatusError } from '../../../shared/classes/StatusError';
 
 export const createTokenService = async (
-    req: Request
 ): Promise<IConfigToken> => {
     const getRandomElement = (arr: string[]): string => {
         return arr[Math.floor(Math.random() * arr.length)];
@@ -65,6 +63,6 @@ export const createTokenService = async (
     if (!result) {
         throw new StatusError("Error al crear el nuevo ConfigToken", 400);
     }
-
+    
     return result.toObject();
 };
