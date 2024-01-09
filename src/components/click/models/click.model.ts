@@ -14,10 +14,13 @@ const clickSchema = new Schema (
         ad: {
             type: String,
             required: true
+        },
+        mensaje: {
+            type: Date
+        },
+        createdAt: {
+            type: Date
         }
-    },
-    {
-        timestamps: true
     }
 );
 
