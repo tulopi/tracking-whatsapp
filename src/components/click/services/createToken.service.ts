@@ -1,5 +1,5 @@
-import { IConfigToken } from '../types/ConfigToken.types';
-import configTokenModel from "../models/configToken.model";
+import { IConfigToken } from '../../tokenConfig/types/ConfigToken.types';
+import configTokenModel from "../../tokenConfig/models/configToken.model";
 import { StatusError } from '../../../shared/classes/StatusError';
 
 export const createTokenService = async (

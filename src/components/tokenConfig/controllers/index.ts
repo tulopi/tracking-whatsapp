@@ -1,1 +1,2 @@
-export * from "./createToken.component"
+export * from "./getTokenConfig.controller";
+export * from "./updateTokenConfig.controller";

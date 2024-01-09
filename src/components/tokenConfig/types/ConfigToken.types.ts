@@ -6,5 +6,4 @@ export interface IConfigToken extends Document {
     frase_saludo: string[];
     frase_despedida: string[];
     cuerpo_mensaje: string[];
-    createdAt: Date;
 };

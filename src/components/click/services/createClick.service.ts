@@ -11,16 +11,16 @@ export const createClickService = async (
     const { campaign, adset, ad, mensaje } = req.body
     if (!campaign || !adset || !ad )
         throw new StatusError("Campos obligatorios no proporcionados", 400);
+    
+    const token = await createTokenService()
+    if(!token) throw new StatusError("Error en la creación del token", 500);
     const clickData = {
         campaign,
         adset,
         ad,
-        mensaje,
+        mensaje: token,
         createdAt: new Date()
     }
-    
-    const token = await createTokenService()
-    if(!token) throw new StatusError("Error en la creación del token", 500);
     const click = new clickModel(clickData);
     if(!click) throw new StatusError("Error en la creación del click", 500);
     const result = await click.save();

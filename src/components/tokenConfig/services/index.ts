@@ -1,1 +1,2 @@
-export * from "./createToken.service";
+export * from "./getTokenConfig.service";
+export * from "./updateTokenConfig.service";
