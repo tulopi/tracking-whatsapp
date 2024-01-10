@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { IClick } from "../types/Click.types";
+import { IConfig } from "../types/Config.types";
 
-const clickSchema = new Schema (
+const configSchema = new Schema (
     {
         emoji_apertura: {
             type: [String],
@@ -26,4 +26,4 @@ const clickSchema = new Schema (
     }
 );
 
-export default model<IClick>("click", clickSchema);
+export default model<IConfig>("config", configSchema);

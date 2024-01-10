@@ -1,9 +1,9 @@
 import { Document } from "mongoose";
 
-export interface IConfigToken extends Document {
+export interface IConfig extends Document {
     emoji_cierre: string[];
     emoji_apertura: string[];
-    frase_saludo: string[];
+    frase_bienvenida: string[];
     frase_despedida: string[];
     cuerpo_mensaje: string[];
 };

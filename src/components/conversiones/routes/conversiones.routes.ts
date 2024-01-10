@@ -7,7 +7,7 @@ const conversionesRouter = Router()
 // [POST] 🌐/api/conversiones/
 conversionesRouter.post("/", controllers.createConversion);
 // [GET] 🌐/api/conversiones/
-conversionesRouter.get("/message", controllers.checkConversion);
+conversionesRouter.post("/mensaje", controllers.checkConversion);
 
 
 export default conversionesRouter;

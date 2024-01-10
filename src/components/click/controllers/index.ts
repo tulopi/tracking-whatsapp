@@ -1,1 +1,1 @@
-export * from "./createClick.component"
+export * from "./createClick.controller"

@@ -4,7 +4,8 @@ import { IClick } from "../types/Click.types";
 const clickSchema = new Schema (
     {
         campaign: {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: "campaign",
             required: true
         },
         adset: {
@@ -15,9 +16,12 @@ const clickSchema = new Schema (
             type: String,
             required: true
         },
-        mensaje: {
+        external_id: {
             type: String,
             required: true
+        },
+        mensaje: {
+            type: String,
         },
         createdAt: {
             type: Date
