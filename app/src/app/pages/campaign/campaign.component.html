@@ -1,0 +1,21 @@
+@for (campaign of data; track data) {
+  <div class="card shadow mb-3" style="max-width: 18rem;">
+    <div class="card-body text-center">
+      <h5 class="card-title">{{ campaign.nombre }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ campaign.url_landing }}</h6>
+      <p>Clicks: {{ campaign.clicks }}</p>
+      <button class="btn btn-primary">Ver Detalles</button>
+    </div>
+  </div>
+} @empty {
+  <div class="card shadow mb-3 mx-auto mt-5" style="max-width: 18rem;">
+    <div class="card-body text-center">
+      <h6 class="card-subtitle mb-2 text-muted">
+        El listado de campañas se encuentra vacío.
+      </h6>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Verificar la base de datos.
+      </h6>
+    </div>
+  </div>
+}

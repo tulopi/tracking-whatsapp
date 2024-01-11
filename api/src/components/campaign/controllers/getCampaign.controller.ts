@@ -10,7 +10,7 @@ export const getCampaign = async (
 ): Promise<void> => {
     try {
         const data = await getCampaignService(req);
-        res.status(201).json({ message: data });
+        res.status(201).json({data});
     } catch (err: StatusError | unknown) {
         logError(err);
         logWarning(`${req.method} ${req.originalUrl} ${res.statusCode}`);
