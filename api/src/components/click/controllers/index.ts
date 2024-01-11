@@ -1,1 +1,2 @@
-export * from "./createClick.controller"
+export * from "./createClick.controller";
+export * from "./redirectClick.controller";

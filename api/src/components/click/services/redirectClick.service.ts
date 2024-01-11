@@ -4,11 +4,10 @@ import { createTokenService } from "./createToken.service";
 import { StatusError } from "../../../shared/classes/StatusError";
 import { isValidObjectId } from "mongoose";
 
-export const createClickService = async (
+export const redirectClickService = async (
     req: Request
 ): Promise<String> => {
-
-    const { campaign, adset, ad, external_id } = req.body
+    const { campaign, adset, ad, external_id } = req.query;
     if (!campaign || !adset || !ad || !external_id)
         throw new StatusError("Campos obligatorios no proporcionados", 400);
         const token = await createTokenService();
@@ -25,6 +24,8 @@ export const createClickService = async (
     const click = new clickModel(clickData);
     if(!click) throw new StatusError("Error en la creación del click", 500);
     const result = await click.save();
-    return result.mensaje;
+    
+    const encondedData = encodeURI(result.mensaje);
+    
+    return encondedData;
 };
-
