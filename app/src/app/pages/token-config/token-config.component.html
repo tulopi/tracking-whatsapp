@@ -1,1 +1,41 @@
-<p>token-config works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="emoji-apertura">Emoji apertura</label>
+        <input type="text" class="form-control" formControlName="emojiApertura">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="emoji-cierre">Emoji cierre</label>
+        <input type="text" class="form-control" formControlName="emojiCierre">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="frase-bienvenida">Frase bienvenida</label>
+        <input type="text" class="form-control" formControlName="fraseBienvenida">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="frase-despedida">Frase despedida</label>
+        <input type="text" class="form-control" formControlName="fraseDespedida">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="cuerpo-mensaje">Cuerpo mensaje</label>
+        <textarea class="form-control" formControlName="cuerpoMensaje" rows="5"></textarea>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

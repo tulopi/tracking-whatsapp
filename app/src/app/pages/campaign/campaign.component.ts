@@ -8,20 +8,23 @@ import { CampaignService } from './campaign.service';
   templateUrl: './campaign.component.html',
   styleUrl: './campaign.component.css'
 })
-export class CampaignComponent implements OnInit{
+export class CampaignComponent implements OnInit {
+
   private campaignService = inject(CampaignService);
   data: any[] = [];
 
-  constructor () {};
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.llenarData();
   }
 
-  llenarData(){
-    this.campaignService.getData().subscribe( data => {
+  llenarData() {
+    this.campaignService.getData().subscribe(data => {
       this.data = data;
       console.log(this.data);
-    })
+    });
   }
-};
+
+
+}
